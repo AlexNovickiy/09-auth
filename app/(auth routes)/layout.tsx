@@ -3,5 +3,5 @@ type AuthLayoutProps = {
 };
 
 export default function AuthLayout({ children }: AuthLayoutProps) {
-  return { children };
+  return <>{children}</>;
 }

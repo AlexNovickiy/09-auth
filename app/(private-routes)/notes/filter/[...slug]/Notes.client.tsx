@@ -10,10 +10,10 @@ import SearchBox from '@/components/SearchBox/SearchBox';
 import Pagination from '@/components/Pagination/Pagination';
 import NoteList from '@/components/NoteList/NoteList';
 
-import { fetchNotes } from '@/lib/api';
+import { fetchNotes } from '@/lib/api/clientApi';
 
 import { useQuery, keepPreviousData } from '@tanstack/react-query';
-import type { FetchNotesResponse } from '@/lib/api';
+import type { FetchNotesResponse } from '@/lib/api/clientApi';
 import { useRouter } from 'next/navigation';
 
 interface NotesClientProps {

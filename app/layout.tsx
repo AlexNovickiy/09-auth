@@ -8,6 +8,7 @@ import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import css from '@/app/Home.module.css';
 import { Toaster } from 'react-hot-toast';
+import AuthProvider from '@/components/AuthProvider/AuthProvider';
 
 const roboto = Roboto({
   variable: '--font-roboto',
@@ -43,11 +44,13 @@ export default function RootLayout({
       <body className={`${roboto.variable}`}>
         <Toaster position="top-right" />
         <TanStackProvider>
-          <Header />
-          <main className={css.main}>
-            {children}
-            {modal}
-          </main>
+          <AuthProvider>
+            <Header />
+            <main className={css.main}>
+              {children}
+              {modal}
+            </main>
+          </AuthProvider>
           <Footer />
           <ReactQueryDevtools initialIsOpen={false} />
         </TanStackProvider>
