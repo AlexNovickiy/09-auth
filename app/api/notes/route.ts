@@ -28,6 +28,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   const data = await request.json();
+  const cookieStore = await cookies();
 
   try {
     const response = await api.post('/notes', data, {
