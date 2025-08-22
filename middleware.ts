@@ -17,7 +17,7 @@ export async function middleware(req: NextRequest) {
   if (!accessToken) {
     if (refreshToken) {
       const data = await checkServerSession();
-      const setCookie = data.headers['set-cookie'];
+      const setCookie = data?.headers['set-cookie'];
       if (setCookie) {
         const cookieArray = Array.isArray(setCookie) ? setCookie : [setCookie];
         for (const cookieStr of cookieArray) {
@@ -51,7 +51,6 @@ export async function middleware(req: NextRequest) {
           });
         }
       }
-      return NextResponse.redirect(new URL('/sign-up', req.url));
     }
 
     if (isPublicPath) {
@@ -59,7 +58,7 @@ export async function middleware(req: NextRequest) {
     }
 
     if (isPrivatePath) {
-      return NextResponse.redirect(new URL('/sign-up', req.url));
+      return NextResponse.redirect(new URL('/sign-in', req.url));
     }
   }
 
