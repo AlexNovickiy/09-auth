@@ -31,11 +31,10 @@ export default function NotesClient({ initialData, tag }: NotesClientProps) {
     queryKey: ['notes', debouncedSearchValue, currentPage, tag],
     queryFn: () => fetchNotes(debouncedSearchValue, currentPage, tag),
     placeholderData: keepPreviousData,
-    initialData:
-      debouncedSearchValue === '' && currentPage === 1
-        ? initialData
-        : undefined,
+    initialData,
   });
+
+  console.log(data);
 
   const handleSearch = (searchValue: string) => {
     setSearchValue(searchValue);
