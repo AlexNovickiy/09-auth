@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
   const tag = rawTag === 'All' ? '' : rawTag;
 
   try {
-    const res = await api.get('/notes', {
+    const res = await api('/notes', {
       params: {
         ...(search !== '' && { search }),
         page,
@@ -63,9 +63,7 @@ export async function POST(request: NextRequest) {
     }
     logErrorResponse({ message: (error as Error).message });
     return NextResponse.json(
-      {
-        error: { error: 'Internal Server Error' },
-      },
+      { error: 'Internal Server Error' },
       { status: 500 }
     );
   }

@@ -1,13 +1,5 @@
-import type {
-  NewUser,
-  User,
-  UserMe,
-} from '@/types/user';
-import {
-  Note,
-  CreateNote,
-  CheckSession,
-} from '@/types/note';
+import type { NewUser, User } from '@/types/user';
+import { Note, CreateNote, CheckSession } from '@/types/note';
 
 import { nextServer } from './api';
 
@@ -76,7 +68,7 @@ export async function checkSession() {
 }
 
 export async function getMe() {
-  const response = await nextServer.get<UserMe>('/users/me');
+  const response = await nextServer.get<User>('/users/me');
   return response.data;
 }
 
@@ -86,6 +78,6 @@ export async function logout() {
 }
 
 export async function updateMe(data: Partial<User>) {
-  const response = await nextServer.patch<UserMe>('/users/me', data);
+  const response = await nextServer.patch<User>('/users/me', data);
   return response.data;
 }

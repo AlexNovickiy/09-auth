@@ -1,12 +1,12 @@
 import { cookies } from 'next/headers';
 import { nextServer } from './api';
 import { Note } from '@/types/note';
-import { User, UserMe } from '@/types/user';
+import { User } from '@/types/user';
 import { FetchNotesResponse } from './clientApi';
 
 export async function getServerMe() {
   const cookieStore = await cookies();
-  const response = await nextServer.get<UserMe>('/users/me', {
+  const response = await nextServer.get<User>('/users/me', {
     headers: {
       Cookie: cookieStore.toString(),
     },
@@ -16,7 +16,7 @@ export async function getServerMe() {
 
 export async function updateServerMe(user: User) {
   const cookieStore = await cookies();
-  const response = await nextServer.patch<UserMe>('/users/me', user, {
+  const response = await nextServer.patch<User>('/users/me', user, {
     headers: {
       Cookie: cookieStore.toString(),
     },

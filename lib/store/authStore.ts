@@ -1,11 +1,11 @@
-import { UserMe } from '@/types/user';
+import { User } from '@/types/user';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 type AuthStore = {
-  user: Partial<UserMe> | null;
+  user: Partial<User> | null;
   isAuthenticated: boolean;
-  setUser: (user: Partial<UserMe>) => void;
+  setUser: (user: Partial<User>) => void;
   clearIsAuthenticated: () => void;
 };
 

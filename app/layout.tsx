@@ -50,8 +50,8 @@ export default function RootLayout({
               {children}
               {modal}
             </main>
+            <Footer />
           </AuthProvider>
-          <Footer />
           <ReactQueryDevtools initialIsOpen={false} />
         </TanStackProvider>
       </body>

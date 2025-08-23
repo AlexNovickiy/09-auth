@@ -10,8 +10,8 @@ type Props = {
 
 export async function DELETE(request: NextRequest, { params }: Props) {
   try {
-    const { id } = await params;
     const cookieStore = await cookies();
+    const { id } = await params;
 
     const res = await api.delete(`/notes/${id}`, {
       headers: {
@@ -39,7 +39,7 @@ export async function GET(request: NextRequest, { params }: Props) {
   try {
     const cookieStore = await cookies();
     const { id } = await params;
-    const res = await api.get(`/notes/${id}`, {
+    const res = await api(`/notes/${id}`, {
       headers: {
         Cookie: cookieStore.toString(),
       },
@@ -61,7 +61,7 @@ export async function GET(request: NextRequest, { params }: Props) {
   }
 }
 
-export async function PATCH(request: Request, { params }: Props) {
+export async function PATCH(request: NextRequest, { params }: Props) {
   try {
     const cookieStore = await cookies();
     const { id } = await params;

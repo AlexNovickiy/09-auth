@@ -14,7 +14,7 @@ import { fetchNotes } from '@/lib/api/clientApi';
 
 import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import type { FetchNotesResponse } from '@/lib/api/clientApi';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface NotesClientProps {
   initialData: FetchNotesResponse;
@@ -25,7 +25,6 @@ export default function NotesClient({ initialData, tag }: NotesClientProps) {
   const [searchValue, setSearchValue] = useState<string>('');
   const [debouncedSearchValue] = useDebounce(searchValue, 1000);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const router = useRouter();
 
   const { data, isFetching, isError, isSuccess } = useQuery({
     queryKey: ['notes', debouncedSearchValue, currentPage, tag],
@@ -41,10 +40,6 @@ export default function NotesClient({ initialData, tag }: NotesClientProps) {
     setCurrentPage(1);
   };
 
-  const handleCreateNote = () => {
-    router.push('/notes/action/create');
-  };
-
   return (
     <div className={css.app}>
       <div className={css.toolbar}>
@@ -56,9 +51,9 @@ export default function NotesClient({ initialData, tag }: NotesClientProps) {
             onPageChange={setCurrentPage}
           />
         )}
-        <button className={css.button} onClick={handleCreateNote}>
+        <Link href="/notes/action/create" className={css.button}>
           Create Note +
-        </button>
+        </Link>
       </div>
       {isFetching && <Loader />}
       {isError && <ErrorMessage />}

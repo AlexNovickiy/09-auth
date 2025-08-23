@@ -6,10 +6,5 @@ export type NewUser = {
 export interface User {
   username: string;
   email: string;
-}
-
-export interface UserMe {
-  username: string;
-  email: string;
   avatar: string;
 }
