@@ -81,3 +81,8 @@ export async function logout() {
   const response = await nextServer.post('/auth/logout');
   return response.data;
 }
+
+export async function updateMe(data: Partial<User>) {
+  const response = await nextServer.patch<UserMe>('/users/me', data);
+  return response.data;
+}

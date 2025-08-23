@@ -1,11 +1,11 @@
-import { User } from '@/types/note';
+import { UserMe } from '@/types/note';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 type AuthStore = {
-  user: User | null;
+  user: Partial<UserMe> | null;
   isAuthenticated: boolean;
-  setUser: (user: User) => void;
+  setUser: (user: Partial<UserMe>) => void;
   clearIsAuthenticated: () => void;
 };
 
@@ -15,7 +15,11 @@ export const useAuthStore = create<AuthStore>()(
       return {
         user: null,
         isAuthenticated: false,
-        setUser: (user: User) => set({ user, isAuthenticated: true }),
+        setUser: user =>
+          set(state => ({
+            user: { ...state.user, ...user },
+            isAuthenticated: true,
+          })),
         clearIsAuthenticated: () => set({ user: null, isAuthenticated: false }),
       };
     },
