@@ -1,11 +1,14 @@
 import type {
-  Note,
-  CreateNote,
   NewUser,
   User,
   UserMe,
+} from '@/types/user';
+import {
+  Note,
+  CreateNote,
   CheckSession,
 } from '@/types/note';
+
 import { nextServer } from './api';
 
 export interface FetchNotesResponse {

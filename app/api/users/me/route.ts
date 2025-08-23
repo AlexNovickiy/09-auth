@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-import { api, ApiError } from '../../api';
+import { api } from '../../api';
 import { NextRequest, NextResponse } from 'next/server';
 import { logErrorResponse } from '../../_utils/utils';
 import { isAxiosError } from 'axios';

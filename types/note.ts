@@ -15,22 +15,6 @@ export interface CreateNote {
 
 export type NoteTag = 'Todo' | 'Work' | 'Personal' | 'Meeting' | 'Shopping';
 
-export type NewUser = {
-  email: string;
-  password: string;
-};
-
-export interface User {
-  username: string;
-  email: string;
-}
-
-export interface UserMe {
-  username: string;
-  email: string;
-  avatar: string;
-}
-
 export type CheckSession = {
   success: boolean;
 };

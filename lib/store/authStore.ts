@@ -1,4 +1,4 @@
-import { UserMe } from '@/types/note';
+import { UserMe } from '@/types/user';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
