@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import css from './SignUpPage.module.css';
-import { NewUser } from '@/types/note';
+import { NewUser } from '@/types/user';
 import { useRouter } from 'next/navigation';
 import { registerUser } from '@/lib/api/clientApi';
 import { useAuthStore } from '@/lib/store/authStore';
