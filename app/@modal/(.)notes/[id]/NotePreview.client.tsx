@@ -5,7 +5,7 @@ import css from '@/components/Modal/Modal.module.css';
 import { useParams, useRouter } from 'next/navigation';
 import { useCallback } from 'react';
 import React from 'react';
-import type { Params } from '@/app/(private-routes)/notes/[id]/NoteDetails.client';
+import type { Params } from '@/app/(private routes)/notes/[id]/NoteDetails.client';
 import { useQuery } from '@tanstack/react-query';
 import { fetchNoteById } from '@/lib/api/clientApi';
 
